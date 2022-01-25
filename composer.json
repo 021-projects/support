@@ -1,0 +1,24 @@
+{
+    "name": "021/support",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "021-projects",
+            "email": "devsellio@gmail.com"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "helpers.php"
+        ],
+        "psr-4": {
+            "O21\\Support\\": "/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "illuminate/support": "^8.80"
+    }
+}
