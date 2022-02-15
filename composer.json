@@ -19,6 +19,6 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "illuminate/support": "^8.80"
+        "illuminate/support": ">=7.0"
     }
 }
