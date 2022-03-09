@@ -3,6 +3,7 @@
 namespace O21\Support;
 
 use Carbon\CarbonInterface;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Str;
@@ -80,10 +81,14 @@ class FreeObject extends Collection
      * Return a timestamp as DateTime object.
      *
      * @param  mixed  $value
-     * @return \Illuminate\Support\Carbon
+     * @return \Illuminate\Support\Carbon|null
      */
-    protected function asDateTime($value): \Illuminate\Support\Carbon
+    protected function asDateTime($value): ?Carbon
     {
+        if (! $value) {
+            return null;
+        }
+
         // If this value is already a Carbon instance, we shall just return it as is.
         // This prevents us having to re-instantiate a Carbon instance when we know
         // it already is one, which wouldn't be fulfilled by the DateTime check.
