@@ -10,6 +10,15 @@ use Illuminate\Support\Str;
 
 class FreeObject extends Collection
 {
+    public function __construct(array $items = [])
+    {
+        $keys = array_map([Str::class, 'snake'], array_keys($items));
+        $snakedItems = array_combine($keys, $items);
+        parent::__construct(
+            is_bool($snakedItems) ? $items : $snakedItems
+        );
+    }
+
     protected array $objects = [];
 
     protected array $getters = [];
